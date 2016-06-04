@@ -2,17 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use GraphAware\Neo4j\OGM\Manager;
+
 class ExampleController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
+     * @var Manager
      */
-    public function __construct()
+    protected $em;
+
+    /**
+     * Create a new controller instance.
+     * @param Manager $em
+     */
+    public function __construct(Manager $em)
     {
-        //
+        $this->em = $em;
     }
 
-    //
+    public function index()
+    {
+        $users = $this->em->getRepository(User::class)->findAll();
+
+        return view('user.list', [
+            'users' => $users
+        ]);
+    }
 }

@@ -1,0 +1,29 @@
+version: '2'
+services:
+  web:
+    image: nginx:1.8
+    ports:
+      - 40080:80
+    links:
+      - php
+    volumes:
+      - ./docker/web/conf.d:/etc/nginx/conf.d
+    volumes_from:
+      - php
+  php:
+    build: ./docker/php-dev
+    links:
+      - neo4j
+    volumes:
+      - ./:/var/www/html/
+    environment:
+      NEO4J_DEFAULT: 'http://neo4j:demo@neo4j:7474'
+      # NEO4J_DEFAULT: 'bolt://neo4j:demo@neo4j' # Todo: Install bolt in the php container
+  neo4j:
+    image: neo4j:3.0
+    ports:
+      - 47474:7474
+      # - 47687:7687
+    volumes:
+      - ./storage/neo4j:/data
+

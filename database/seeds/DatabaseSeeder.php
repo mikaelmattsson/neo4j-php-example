@@ -1,16 +1,12 @@
 <?php
 
-use Illuminate\Database\Seeder;
-
-class DatabaseSeeder extends Seeder
+class DatabaseSeeder extends AbstractNeo4jSeeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
     public function run()
     {
-        // $this->call('UserTableSeeder');
+        $this->call('UserSeeder');
     }
 }

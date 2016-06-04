@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+docker-compose exec php php /var/www/html/artisan $1 $2 $3 $4 $5 $6 $7 $8
