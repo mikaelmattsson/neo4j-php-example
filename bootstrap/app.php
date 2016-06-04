@@ -2,8 +2,6 @@
 
 $loader = require_once __DIR__.'/../vendor/autoload.php';
 
-\Doctrine\Common\Annotations\AnnotationRegistry::registerLoader([$loader, 'loadClass']);
-
 try {
     (new Dotenv\Dotenv(__DIR__.'/../'))->load();
 } catch (Dotenv\Exception\InvalidPathException $e) {
@@ -29,6 +27,10 @@ $app = new Laravel\Lumen\Application(
 
 // $app->withEloquent();
 
+$app->singleton('autoloader', function () use ($loader) {
+    return $loader;
+});
+
 $app->register(App\Providers\AppServiceProvider::class);
 
 /*
@@ -41,6 +43,5 @@ $app->register(App\Providers\AppServiceProvider::class);
 | from the actual running of the application and sending responses.
 |
 */
-
 
 return $app;

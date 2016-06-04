@@ -2,13 +2,15 @@
 
 namespace App\Providers;
 
+use Doctrine\Common\Annotations\AnnotationRegistry;
 use GraphAware\Neo4j\Client\ClientBuilder;
 use GraphAware\Neo4j\OGM\Manager;
-use Laravel\Lumen\Application;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Lumen\Application;
 
 class Neo4jServiceProvider extends ServiceProvider
 {
+
     /**
      * Register bindings in the container.
      *
@@ -18,7 +20,7 @@ class Neo4jServiceProvider extends ServiceProvider
     {
         /* @var Application $app */
         $app = $this->app;
-        
+
         $app->singleton(ClientBuilder::class, function (Application $app) {
             return ClientBuilder::create()
                 ->addConnection('default', env('NEO4J_DEFAULT'))
@@ -26,7 +28,13 @@ class Neo4jServiceProvider extends ServiceProvider
         });
 
         $app->singleton(Manager::class, function (Application $app) {
-            return new Manager($app[ClientBuilder::class]);
+
+            AnnotationRegistry::registerLoader([
+                $app['autoloader'],
+                'loadClass',
+            ]);
+
+            return new Manager($app[ClientBuilder::class], storage_path('doctrine/cache'));
         });
     }
 }

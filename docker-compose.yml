@@ -22,7 +22,6 @@ services:
     image: neo4j:3.0
     ports:
       - 47474:7474
-      # - 47687:7687
     volumes:
       - ./storage/neo4j:/data
 

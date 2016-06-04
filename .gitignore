@@ -1,5 +1,6 @@
 docker/php/ssmtp.conf
 docker/php-dev/ssmtp.conf
 storage/neo4j
+storage/doctrine
 /vendor
 .env
