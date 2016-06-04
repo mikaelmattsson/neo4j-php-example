@@ -17,8 +17,7 @@ services:
     volumes:
       - ./:/var/www/html/
     environment:
-      NEO4J_DEFAULT: 'http://neo4j:demo@neo4j:7474'
-      # NEO4J_DEFAULT: 'bolt://neo4j:demo@neo4j' # Todo: Install bolt in the php container
+      NEO4J_DEFAULT: 'bolt://neo4j:demo@neo4j:7687'
   neo4j:
     image: neo4j:3.0
     ports:
