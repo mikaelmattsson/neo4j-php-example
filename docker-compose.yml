@@ -17,7 +17,7 @@ services:
     volumes:
       - ./:/var/www/html/
     environment:
-      NEO4J_DEFAULT: 'bolt://neo4j:demo@neo4j:7687'
+      NEO4J_DEFAULT: 'bolt://neo4j:demo@neo4j'
   neo4j:
     image: neo4j:3.0
     ports:

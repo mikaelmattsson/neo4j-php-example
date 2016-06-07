@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use GraphAware\Neo4j\OGM\Manager;
+use GraphAware\Neo4j\OGM\EntityManager;
 
 class ExampleController extends Controller
 {
     /**
-     * @var Manager
+     * @var EntityManager
      */
     protected $em;
 
     /**
      * Create a new controller instance.
-     * @param Manager $em
+     * @param EntityManager $em
      */
-    public function __construct(Manager $em)
+    public function __construct(EntityManager $em)
     {
         $this->em = $em;
     }
