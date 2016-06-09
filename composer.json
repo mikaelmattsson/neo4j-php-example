@@ -16,7 +16,7 @@
         "php": ">=5.5.9",
         "laravel/lumen-framework": "5.2.*",
         "vlucas/phpdotenv": "~2.2",
-        "graphaware/neo4j-php-ogm": "dev-master#3c4e1c1189bc32cfc2479b34475e9f25a546b5bf"
+        "graphaware/neo4j-php-ogm": "dev-master#6a145828f3f6242d516a7a29056f69e876ec6b8b"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

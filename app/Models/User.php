@@ -54,7 +54,7 @@ class User extends AbstractEntity
     protected $lovedBy;
 
     /**
-     * @OGM\Relationship(type="FRIENDS_WITH", direction="OUTGOING", targetEntity="User", collection=true)
+     * @OGM\Relationship(type="FRIENDS_WITH", direction="BOTH", targetEntity="User", collection=true)
      */
     protected $friends;
 }
