@@ -1,6 +1,6 @@
 <?php
 /**
- * @var \App\Models\User[] $users
+ * @var \App\User\Models\User[] $users
  */
 ?>
 <!doctype html>

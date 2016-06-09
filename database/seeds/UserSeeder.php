@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use App\User\Models\User;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class UserSeeder extends AbstractNeo4jSeeder
@@ -38,7 +38,7 @@ class UserSeeder extends AbstractNeo4jSeeder
      * @param int    $max
      * @param        $exclude
      *
-     * @return \App\Models\User[]|ArrayCollection
+     * @return \App\User\Models\User[]|ArrayCollection
      */
     public function getRandomUsers(array $users, int $max, User $exclude) : ArrayCollection
     {

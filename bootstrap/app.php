@@ -31,7 +31,7 @@ $app->singleton('autoloader', function () use ($loader) {
     return $loader;
 });
 
-$app->register(App\Providers\AppServiceProvider::class);
+$app->register(App\AppServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
